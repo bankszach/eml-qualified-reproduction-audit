@@ -67,7 +67,7 @@ diagnostic-only and is not counted as proof of pure dependency-chain closure.
 
 ## What This Repo Does Not Claim
 
-- This is not a refutation of the paper.
+- This is not presented as an adversarial critique of the paper.
 - This is not a full pure EML proof.
 - This does not claim unrestricted generation of "all elementary functions"
   beyond the paper's Table 1 scientific-calculator basis.
@@ -89,6 +89,7 @@ archived sources are present.
 ## Where To Read More
 
 - [`FINAL_AUDIT_INDEX.md`](FINAL_AUDIT_INDEX.md): public reading guide for the audit.
+- [`AUTHOR_NOTE.md`](AUTHOR_NOTE.md): concise note intended for the paper author.
 - [`reports/reproduction_report.md`](reports/reproduction_report.md): final qualified reproduction report.
 - [`reports/status_matrix.md`](reports/status_matrix.md): per-primitive status matrix.
 - [`reports/final_proof_risks.md`](reports/final_proof_risks.md): remaining proof risks.

@@ -7,7 +7,7 @@
 
 ## 2026-04-24
 
-Initial scaffold created for `eml-proof-lab`.
+Initial scaffold created for the EML qualified reproduction audit.
 
 Implemented:
 

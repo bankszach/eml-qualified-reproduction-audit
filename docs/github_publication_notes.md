@@ -13,7 +13,6 @@ symbolic-computation
 elementary-functions
 branch-cuts
 complex-analysis
-symbolic-regression
 computer-algebra
 reproducibility
 proof-audit
@@ -50,3 +49,15 @@ Release notes:
 - 92 tests passing.
 - Broad numerical reproduction succeeded.
 - Remaining qualification: inverse-function compositional branch semantics.
+
+## Recommended Release Summary
+
+This release records the qualified reproduction audit of the paper's Table 1
+scientific-calculator basis. It preserves the final status counts, source
+traceability, branch-semantics diagnostics, and public-facing reports prepared
+for author/community review.
+
+The release claims broad numerical reproduction and a proof-audit result for
+the audited Table 1 basis. It does not claim a complete pure EML proof, does
+not present the audit as adversarial, and does not start symbolic-regression
+work.

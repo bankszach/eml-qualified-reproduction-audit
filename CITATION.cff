@@ -1,12 +1,12 @@
 cff-version: 1.2.0
-message: "If you use this audit repository, please cite it. This citation is for the repository itself, not the original paper. Replace OWNER in repository-code after publication."
+message: "If you use this audit repository, please cite it. This citation is for the repository itself, not the original paper."
 title: "EML Qualified Reproduction Audit"
 type: software
 authors:
   - name: "EML Qualified Reproduction Audit contributors"
 version: "0.1-qualified-reproduction"
 date-released: "2026-04-24"
-repository-code: "https://github.com/OWNER/eml-qualified-reproduction-audit"
+repository-code: "https://github.com/bankszach/eml-qualified-reproduction-audit"
 abstract: "Independent qualified reproduction audit of the EML single-operator elementary-functions paper, with explicit branch-semantics diagnostics."
 keywords:
   - symbolic-computation

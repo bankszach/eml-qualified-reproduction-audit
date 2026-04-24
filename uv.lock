@@ -549,7 +549,7 @@ wheels = [
 ]
 
 [[package]]
-name = "eml-proof-lab"
+name = "eml-qualified-reproduction-audit"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
