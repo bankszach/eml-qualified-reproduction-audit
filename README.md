@@ -1,42 +1,28 @@
-# eml-proof-lab
+# EML Qualified Reproduction Audit
 
-This repository is a proof, reproduction, and audit laboratory for Andrzej
-Odrzywolek's paper "All elementary functions from a single binary operator"
-(`arXiv:2603.21852v2`). It audits the paper's concrete Table 1
-scientific-calculator basis from the binary Exp-Minus-Log operator and reports
-a qualified reproduction: broad reproduction succeeded, while full
-dependency-chain compositional closure remains blocked for the inverse-function
-cluster.
-
-## Current Result
-
-The repo currently supports a qualified reproduction of the paper's Table 1
-claim. All 36 Table 1 primitives are registered, no source witnesses are
-missing, and no rows remain untested. The result is not a failed reproduction
-and not a complete pure EML proof.
-
-## What Is EML?
-
-EML is the binary operation:
+This is an independent reproduction and proof-audit repository for Andrzej
+Odrzywolek's paper ["All elementary functions from a single binary operator"](https://arxiv.org/abs/2603.21852),
+which claims that the operator
 
 ```text
-eml(x, y) = exp(x) - log(y)
+eml(x, y) = exp(x) - ln(y)
 ```
 
-The audited construction starts from this operator and the distinguished
-terminal `1`. The repo tests the paper's specific scientific-calculator basis;
-it does not claim unrestricted generation of every informal meaning of
-"elementary function."
+together with the constant `1`, can generate a scientific-calculator basis.
+The audit focuses on the paper's concrete Table 1 construction and asks what
+can be reproduced numerically, what is source-supported, and where branch
+semantics must be made explicit.
 
-## What Was Audited?
+## Relationship To The Original Paper
 
-The audit checks the paper's Table 1 primitives against witnesses from the
-paper, supplementary information, and author code. It separates named-function
-reproduction, dependency-chain reproduction, diagnostic-helper reproduction,
-fully expanded EML reproduction, Mathematica/source-chain evidence, and
-Python/mpmath numerical evidence.
+This repository audits the Table 1 claim from the paper using the paper PDF,
+supplementary information, author repository, and archived source artifacts
+recorded in [`sources/manifest.md`](sources/manifest.md). It is independent
+and unofficial. It is intended to be useful to the original author, publisher,
+and technically interested readers, but it does not claim to replace the
+author's proof or speak for the author.
 
-## Final Status Counts
+## Current Result
 
 ```text
 total primitives: 36
@@ -49,18 +35,44 @@ failed: 0
 not-yet-tested: 0
 ```
 
-## Main Qualified Finding
+Broad reproduction succeeded, while full dependency-chain compositional
+closure remains blocked for the inverse-function cluster. This is a qualified
+reproduction and proof-audit result, not a generic failure and not a complete
+pure EML proof.
 
-The core EML identities and most arithmetic, exponential/logarithmic, trig,
-hyperbolic, and derived rows reproduce under explicit numerical semantics. The
-remaining issue is compositional branch semantics in the inverse-function
-cluster. The derived `arcosh` witness is outward-valid for real `x > 1`, but
-is not compositionally safe as the internal principal `ArcCosh` needed by the
-`arccos` witness on `(-1, 1)`.
+## Plain-Language Result
 
-The diagnostic internal helper reproduces staged named-principal `acosh`
-behavior, but it is not a replacement for the derived EML `arcosh` witness and
-does not prove pure dependency-chain closure.
+Most of the constructive chain reproduced cleanly under explicit numerical
+semantics. All 36 Table 1 primitives were registered, no source witnesses are
+missing, and no rows remain untested. The remaining issue is not an absent
+formula or a numerical collapse; it is a compositional branch-semantics gap in
+the inverse-function cluster.
+
+In practical terms, the audit found broad outward-domain reproduction of the
+calculator-facing primitives, while identifying one place where substituting a
+derived witness into a later witness changes the internal branch behavior.
+
+## The Main Qualified Finding
+
+The derived `arcosh` witness is outward-valid for real `x > 1`. However, it is
+not compositionally safe as an internal principal `ArcCosh` substitute inside
+the `arccos` witness over `(-1, 1)`.
+
+The author source verifies `arccos` using the named Mathematica expression
+`ArcCosh[Cos[ArcCosh[x]]]`. This audit did not find source evidence that the
+derived `arcosh` witness was substituted into that identity across the internal
+branch domains required by the later `arccos` witness. A diagnostic internal
+helper reproduces the staged named-principal behavior, but that helper is
+diagnostic-only and is not counted as proof of pure dependency-chain closure.
+
+## What This Repo Does Not Claim
+
+- This is not a refutation of the paper.
+- This is not a full pure EML proof.
+- This does not claim unrestricted generation of "all elementary functions"
+  beyond the paper's Table 1 scientific-calculator basis.
+- Diagnostic helpers are not counted as proof paths.
+- Symbolic regression is out of scope for this audit phase.
 
 ## How To Run
 
@@ -71,36 +83,35 @@ uv run python scripts/final_reproduction_check.py
 uv run python scripts/build_status_matrix.py
 ```
 
-The baseline reproduction does not require Mathematica or internet access.
+The baseline audit does not require Mathematica or internet access after the
+archived sources are present.
 
-## Where To Read The Reports
+## Where To Read More
 
-- `FINAL_AUDIT_INDEX.md`: central index for the completed audit.
-- `reports/reproduction_report.md`: final qualified verdict and iteration
-  history.
-- `reports/status_matrix.md`: Table 1 status matrix.
-- `reports/final_proof_risks.md`: proof risks that remain after reproduction.
-- `docs/status_policy.md`: definitions for final statuses and reproduction
-  layers.
+- [`FINAL_AUDIT_INDEX.md`](FINAL_AUDIT_INDEX.md): public reading guide for the audit.
+- [`reports/reproduction_report.md`](reports/reproduction_report.md): final qualified reproduction report.
+- [`reports/status_matrix.md`](reports/status_matrix.md): per-primitive status matrix.
+- [`reports/final_proof_risks.md`](reports/final_proof_risks.md): remaining proof risks.
+- [`reports/compositional_validity_audit.md`](reports/compositional_validity_audit.md): outward validity versus compositional validity.
+- [`docs/status_policy.md`](docs/status_policy.md): status definitions.
+- [`docs/branch_cuts.md`](docs/branch_cuts.md): branch-cut assumptions and diagnostics.
+- [`docs/future_work.md`](docs/future_work.md): scoped future work.
 
-## Repository Map
+## Open Question For The Author/Community
 
-See `docs/repo_map.md` for a concise map of directories and important files.
+Are discovered primitives intended to be compositionally substituted into later
+witnesses across all internal branch domains required by those later witnesses,
+or only to reproduce the named primitive on its outward calculator-facing
+domain?
 
-## What This Repo Does Not Claim
-
-- It does not claim full pure EML compositional closure for the
-  inverse-function cluster.
-- It does not count diagnostic-helper paths as verified EML witnesses.
-- It does not hide branch ambiguity behind a generic failure label.
-- It does not claim all elementary functions in an unrestricted mathematical
-  sense.
-- It does not include symbolic regression in this audit phase.
+This question arises specifically from the `arcosh` -> `arccos` dependency.
 
 ## Future Work
 
-Future work should focus on proof closure: source-justified branch rules,
-fully expanded symbolic verification, alternate inverse-function witnesses, or
-formal branch-semantics modeling. Symbolic regression is explicitly deferred
-until proof semantics are closed or the qualified status is accepted as the
-intended stopping point.
+- Establish a source-justified branch rule for dependency-chain substitution.
+- Search for alternate witnesses for the inverse-function cluster.
+- Produce a full pure EML expansion with branch annotations.
+- Compare Mathematica, mpmath, SymPy, NumPy, and Rust backend behavior.
+- Incorporate author feedback or pointers to missed source rules.
+- Defer symbolic regression until proof semantics are resolved or the current
+  qualified status is accepted as the intended stopping point.

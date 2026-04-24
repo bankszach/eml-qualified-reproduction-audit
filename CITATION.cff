@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this audit repository, please cite it. This citation is for the repository itself, not the original paper. Replace OWNER in repository-code after publication."
+title: "EML Qualified Reproduction Audit"
+type: software
+authors:
+  - name: "EML Qualified Reproduction Audit contributors"
+version: "0.1-qualified-reproduction"
+date-released: "2026-04-24"
+repository-code: "https://github.com/OWNER/eml-qualified-reproduction-audit"
+abstract: "Independent qualified reproduction audit of the EML single-operator elementary-functions paper, with explicit branch-semantics diagnostics."
+keywords:
+  - symbolic-computation
+  - elementary-functions
+  - branch-cuts
+  - complex-analysis
+  - reproducibility
+  - proof-audit
+  - mathematics
+  - python
+  - mpmath
+references:
+  - type: article
+    title: "All elementary functions from a single binary operator"
+    authors:
+      - family-names: "Odrzywolek"
+        given-names: "Andrzej"
+    year: 2026
+    url: "https://arxiv.org/abs/2603.21852"
