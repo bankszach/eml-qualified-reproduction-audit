@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+sources/*.pdf
+sources/*.tar
+sources/*.tar.gz
+sources/*.zip
+external/SymbolicRegressionPackage/
+reports/author_rust_verify_run.md
+
