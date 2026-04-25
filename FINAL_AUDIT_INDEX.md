@@ -4,7 +4,7 @@
 **Status:** Final audit index.
 **Last updated:** 2026-04-24.
 **Related files:** `README.md`, `AUTHOR_NOTE.md`, `reports/reproduction_report.md`,
-`reports/status_matrix.md`.
+`reports/status_matrix.md`, `PROOF_SNAPSHOT.md`.
 
 This index is the map for readers who want to understand the completed audit
 without reading the repository in file-system order. The scientific result is
@@ -12,23 +12,31 @@ a qualified reproduction: broad reproduction succeeded, while full
 dependency-chain compositional closure remains blocked for the inverse-function
 cluster.
 
+This repository is intended to be read as a stable audit snapshot for the
+canonical release `v0.1-qualified-reproduction`. Future proof work, alternate
+witness searches, compiler-path audits, backend comparisons, and symbolic
+regression experiments should proceed in separate repositories or explicitly
+separate project lines.
+
 ## Start Here
 
 Start with [`README.md`](README.md) for the public summary, final counts, and
-the central branch-semantics question. Then read
+the central branch-semantics question. Read
+[`PROOF_SNAPSHOT.md`](PROOF_SNAPSHOT.md) for the frozen release state. Then read
 [`reports/reproduction_report.md`](reports/reproduction_report.md) for the
 full audit narrative and final verdict.
 
 Recommended reading order:
 
 1. [`README.md`](README.md)
-2. [`AUTHOR_NOTE.md`](AUTHOR_NOTE.md)
-3. [`reports/reproduction_report.md`](reports/reproduction_report.md)
-4. [`reports/status_matrix.md`](reports/status_matrix.md)
-5. [`reports/final_proof_risks.md`](reports/final_proof_risks.md)
-6. [`reports/compositional_validity_audit.md`](reports/compositional_validity_audit.md)
-7. [`docs/branch_cuts.md`](docs/branch_cuts.md)
-8. [`docs/future_work.md`](docs/future_work.md)
+2. [`PROOF_SNAPSHOT.md`](PROOF_SNAPSHOT.md)
+3. [`AUTHOR_NOTE.md`](AUTHOR_NOTE.md)
+4. [`reports/reproduction_report.md`](reports/reproduction_report.md)
+5. [`reports/status_matrix.md`](reports/status_matrix.md)
+6. [`reports/final_proof_risks.md`](reports/final_proof_risks.md)
+7. [`reports/compositional_validity_audit.md`](reports/compositional_validity_audit.md)
+8. [`docs/branch_cuts.md`](docs/branch_cuts.md)
+9. [`docs/future_work.md`](docs/future_work.md)
 
 ## If You Are The Paper Author
 

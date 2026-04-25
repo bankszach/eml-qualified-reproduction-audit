@@ -1,12 +1,12 @@
 # GitHub Publication Notes
 
-## Suggested Repository Description
+## Repository Description
 
 ```text
 Independent qualified reproduction audit of the EML single-operator elementary-functions paper, with explicit branch-semantics diagnostics.
 ```
 
-## Suggested Topics
+## Topics
 
 ```text
 symbolic-computation
@@ -21,13 +21,13 @@ python
 mpmath
 ```
 
-## Suggested Short Pinned-Repo Description
+## Short Pinned-Repo Description
 
 ```text
 A reproducible audit of the EML single-operator claim: broad Table 1 reproduction succeeds, with a qualified inverse-function branch-semantics gap.
 ```
 
-## Suggested Release
+## Release
 
 Tag:
 
@@ -43,21 +43,41 @@ Qualified Reproduction Audit v0.1
 
 Release notes:
 
+```text
+This release freezes the repository as a completed qualified reproduction/proof-audit of the EML Table 1 construction.
+```
+
+Final status:
+
 - 36 / 36 Table 1 primitives registered.
-- No missing source witnesses.
-- No untested rows.
 - 92 tests passing.
-- Broad numerical reproduction succeeded.
-- Remaining qualification: inverse-function compositional branch semantics.
+- 6 verified.
+- 22 reproduced numerically.
+- 5 partially reproduced.
+- 3 blocked by branch semantics.
+- 0 source gaps.
+- 0 failed.
+- 0 untested.
 
-## Recommended Release Summary
+Final verdict:
 
-This release records the qualified reproduction audit of the paper's Table 1
-scientific-calculator basis. It preserves the final status counts, source
-traceability, branch-semantics diagnostics, and public-facing reports prepared
-for author/community review.
+```text
+Broad reproduction succeeded, while full dependency-chain compositional closure remains blocked for the inverse-function cluster. This is a qualified reproduction and proof-audit result, not a generic failure and not a complete pure EML proof.
+```
 
-The release claims broad numerical reproduction and a proof-audit result for
-the audited Table 1 basis. It does not claim a complete pure EML proof, does
-not present the audit as adversarial, and does not start symbolic-regression
-work.
+This release does not include further proof work, alternate witness search,
+symbolic regression experiments, or private correspondence. Future work should
+proceed in a separate repository or explicitly separate project line.
+
+Recommended reading order:
+
+```text
+1. README.md
+2. PROOF_SNAPSHOT.md
+3. FINAL_AUDIT_INDEX.md
+4. reports/reproduction_report.md
+5. reports/status_matrix.md
+6. reports/final_proof_risks.md
+7. reports/compositional_validity_audit.md
+8. docs/future_work.md
+```

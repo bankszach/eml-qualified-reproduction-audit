@@ -13,6 +13,19 @@ The audit focuses on the paper's concrete Table 1 construction and asks what
 can be reproduced numerically, what is source-supported, and where branch
 semantics must be made explicit.
 
+## Repository Status / Proof Snapshot
+
+This repository is a frozen qualified reproduction/proof-audit snapshot. The
+canonical release is `v0.1-qualified-reproduction`, summarized in
+[`PROOF_SNAPSHOT.md`](PROOF_SNAPSHOT.md). Future work belongs in a separate
+repository or explicitly separate project line.
+
+This repository audits the paper's Table 1 scientific-calculator basis. It is
+not a full pure EML proof, not a refutation, and not an unrestricted claim
+about all elementary functions. Private correspondence is not quoted or used
+as public evidence; claims here are grounded in the paper, supplementary
+information, archived source files, and executable tests.
+
 ## Relationship To The Original Paper
 
 This repository audits the Table 1 claim from the paper using the paper PDF,
@@ -73,6 +86,8 @@ diagnostic-only and is not counted as proof of pure dependency-chain closure.
   beyond the paper's Table 1 scientific-calculator basis.
 - Diagnostic helpers are not counted as proof paths.
 - Symbolic regression is out of scope for this audit phase.
+- Private correspondence is not quoted, paraphrased, or used as public
+  evidence.
 
 ## How To Run
 
@@ -89,6 +104,7 @@ archived sources are present.
 ## Where To Read More
 
 - [`FINAL_AUDIT_INDEX.md`](FINAL_AUDIT_INDEX.md): public reading guide for the audit.
+- [`PROOF_SNAPSHOT.md`](PROOF_SNAPSHOT.md): frozen release-state summary.
 - [`AUTHOR_NOTE.md`](AUTHOR_NOTE.md): concise note intended for the paper author.
 - [`reports/reproduction_report.md`](reports/reproduction_report.md): final qualified reproduction report.
 - [`reports/status_matrix.md`](reports/status_matrix.md): per-primitive status matrix.
@@ -116,3 +132,6 @@ This question arises specifically from the `arcosh` -> `arccos` dependency.
 - Incorporate author feedback or pointers to missed source rules.
 - Defer symbolic regression until proof semantics are resolved or the current
   qualified status is accepted as the intended stopping point.
+
+These items are future-project directions, not work started in this frozen
+audit snapshot.
